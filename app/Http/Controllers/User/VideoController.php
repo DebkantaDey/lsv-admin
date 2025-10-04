@@ -366,7 +366,7 @@ class VideoController extends Controller
     public function show($id)
     {
         try {
-
+ 
             $data = Content::where('id', $id)->first();
             if (isset($data)) {
 

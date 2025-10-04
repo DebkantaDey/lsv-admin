@@ -305,7 +305,7 @@ CREATE TABLE `tbl_general_setting` (
 --
 
 INSERT INTO `tbl_general_setting` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
-(1, 'app_name', 'DTTube', '2023-04-21 05:09:12', '2024-08-22 14:22:17'),
+(1, 'app_name', 'LSV24', '2023-04-21 05:09:12', '2024-08-22 14:22:17'),
 (2, 'host_email', 'admin@admin.com', '2023-04-21 05:09:12', '2023-08-26 06:11:33'),
 (3, 'app_version', '1.1', '2023-04-21 05:09:12', '2023-08-26 06:11:33'),
 (4, 'author', 'Divintechs', '2023-04-21 05:09:12', '2023-08-26 06:11:33'),

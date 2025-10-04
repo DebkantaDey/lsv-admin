@@ -15,10 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Page
+//Page
 Route::group(['middleware' => 'installation'], function () {
     Route::get('pages/{page_name}', [DashboardController::class, 'Page'])->name('admin.pages');
 });
+
+
+// Route::get('/test', function () {
+//     return "Routes are working!";
+// });
+
+
+// Route::get('/', [DashboardController::class, 'Landing'])->name('landing');
+
+// // Other pages (dynamic by slug/name)
+// Route::group(['middleware' => 'installation'], function () {
+//     Route::get('pages/{page_name}', [DashboardController::class, 'Page'])->name('admin.pages');
+// });
 
 // Socket Route
 Route::post('addlivehistory', [SocketController::class, 'addLiveHistory']);

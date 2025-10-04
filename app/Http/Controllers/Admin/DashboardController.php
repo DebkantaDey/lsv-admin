@@ -199,22 +199,23 @@ class DashboardController extends Controller
             return response()->json(array('status' => 400, 'errors' => $e->getMessage()));
         }
     }
-    public function Page()
-    {
-        try {
-            $currentURL = URL::current();
+    public function Page($page_name)
+{
+    try {
+        $data = Page::where('page_name', $page_name)->first();
 
-            $link_array = explode('/', $currentURL);
-            $page = end($link_array);
-
-            $data = Page::where('page_name', $page)->first();
-            if (isset($data)) {
-                return view('page', ['result' => $data]);
-            } else {
-                return view('errors.404');
-            }
-        } catch (Exception $e) {
-            return response()->json(array('status' => 400, 'errors' => $e->getMessage()));
+        if ($data) {
+            return view('page', ['result' => $data]);
+        } else {
+            return view('errors.404');
         }
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 400,
+            'errors' => $e->getMessage()
+        ]);
     }
+}
+
+
 }

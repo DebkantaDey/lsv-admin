@@ -117,11 +117,11 @@
 
                                 <div class="d-flex text-align-center">
                                     <span class="d-flex text-align-center mr-3">
-                                        <i class="fa-solid fa-thumbs-up fa-xl mr-3" style="color:#4e45b8; margin-top:12px"></i>
+                                        <i class="fa-solid fa-thumbs-up fa-xl mr-3" style="color:#4e45b8; margin-top:12px; cursor: pointer"></i>
                                         <h5 class="counting" data-count="{{No_Format($value->total_like ?? 0)}}">{{No_Format($value->total_like)}}</h5>
                                     </span>
                                     <span class="d-flex text-align-center">
-                                        <i class="fa-regular fa-eye fa-xl mr-3" style="color:#4e45b8; margin-top:12px"></i>
+                                        <i class="fa-regular fa-eye fa-xl mr-3" style="color:#4e45b8; margin-top:12px; cursor: pointer"></i>
                                         <h5 class="counting" data-count="{{No_Format($value->total_view ?? 0)}}">{{No_Format($value->total_view)}}</h5>
                                     </span>
                                 </div>
@@ -221,5 +221,24 @@
                 }
             });
         };
+
+        // Playing video
+        $(document).on('click', '.play-btn-top', function() {
+        let videoUrl = $(this).data('video');
+        let posterImg = $(this).data('image');
+
+        let video = document.getElementById("theVideo");
+        video.src = videoUrl; // set video source
+        video.poster = posterImg;
+        video.load();
+        video.play();
+    });
+
+    // Stop video when modal closed
+    $('#videoModal').on('hidden.bs.modal', function () {
+        let video = document.getElementById("theVideo");
+        video.pause();
+        video.src = "";
+    });
     </script>
 @endsection
